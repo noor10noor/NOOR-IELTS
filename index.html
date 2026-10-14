@@ -16,14 +16,6 @@
                     fontFamily: {
                         sans: ['Plus Jakarta Sans', 'sans-serif'],
                         mono: ['JetBrains Mono', 'monospace'],
-                    },
-                    colors: {
-                        noor: {
-                            gold: '#F59E0B',
-                            dark: '#0B0F19',
-                            panel: '#111827',
-                            accent: '#3B82F6'
-                        }
                     }
                 }
             }
@@ -66,11 +58,9 @@
 
     <!-- ================= TOP BAR (NOOR IELTS BRAND + CD-IELTS CONTROLS) ================= -->
     <header class="bg-slate-900/95 backdrop-blur-md border-b border-slate-800 px-3 lg:px-6 py-2.5 flex flex-wrap justify-between items-center gap-2 z-30 shadow-xl">
-        <!-- Brand Logo -->
         <div class="flex items-center gap-3">
             <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 via-amber-500 to-orange-600 p-0.5 logo-glow flex items-center justify-center shadow-lg cursor-pointer" onclick="openLibraryModal()">
                 <div class="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center">
-                    <!-- Custom NOOR IELTS Crown & Star SVG Logo -->
                     <svg class="w-6 h-6 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M12 2L14.8 8.5L22 9.3L16.5 14L18.2 21L12 17.3L5.8 21L7.5 14L2 9.3L9.2 8.5L12 2Z" fill="url(#noorGrad)" stroke="#F59E0B"/>
                         <defs>
@@ -107,7 +97,7 @@
             </button>
         </nav>
 
-        <!-- Right Controls: Test Bank Selector, AI Generator, Timer, Results -->
+        <!-- Right Controls -->
         <div class="flex items-center gap-2">
             <button onclick="openLibraryModal()" class="flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-amber-300 border border-amber-500/30 px-2.5 py-1.5 rounded-xl text-xs font-bold transition shadow">
                 <i data-lucide="database" class="w-3.5 h-3.5"></i>
@@ -131,19 +121,15 @@
         </div>
     </header>
 
-    <!-- ================= SUB-TOOLBAR (PARTS, HIGHLIGHTER, FONT SIZE) ================= -->
+    <!-- ================= SUB-TOOLBAR ================= -->
     <div class="bg-slate-900/60 border-b border-slate-800/80 px-4 py-1.5 flex flex-wrap justify-between items-center gap-2 text-xs">
-        <div id="subPartTabs" class="flex items-center gap-1.5 overflow-x-auto py-0.5">
-            <!-- Dynamically rendered Part/Passage tabs -->
-        </div>
+        <div id="subPartTabs" class="flex items-center gap-1.5 overflow-x-auto py-0.5"></div>
 
         <div class="flex items-center gap-2">
             <button onclick="applyHighlight('yellow')" class="flex items-center gap-1 bg-yellow-400/20 hover:bg-yellow-400/30 text-yellow-300 border border-yellow-400/30 px-2.5 py-1 rounded-lg font-semibold transition">
                 <i data-lucide="highlighter" class="w-3.5 h-3.5"></i> Highlight
             </button>
-            <button onclick="clearHighlights()" class="text-slate-400 hover:text-slate-200 px-2 py-1 rounded-lg">
-                Clear
-            </button>
+            <button onclick="clearHighlights()" class="text-slate-400 hover:text-slate-200 px-2 py-1 rounded-lg">Clear</button>
             <div class="h-3 w-[1px] bg-slate-700 mx-1"></div>
             <button onclick="changeFontSize(1)" class="bg-slate-800 hover:bg-slate-700 px-2 py-0.5 rounded text-slate-300 font-bold">A+</button>
             <button onclick="changeFontSize(-1)" class="bg-slate-800 hover:bg-slate-700 px-2 py-0.5 rounded text-slate-300 font-bold">A-</button>
@@ -152,24 +138,13 @@
 
     <!-- ================= MAIN SPLIT-SCREEN WORKSPACE ================= -->
     <main class="flex-1 grid grid-cols-1 md:grid-cols-2 overflow-hidden relative" id="mainWorkspace">
-
-        <!-- LEFT PANE (Audio & Script / Reading Passage / Writing Prompt / Speaking Cue Card) -->
-        <section id="leftPane" class="bg-slate-900/40 p-4 md:p-6 overflow-y-auto border-b md:border-b-0 md:border-r border-slate-800 select-text fade-enter">
-            <!-- Populated dynamically by JS -->
-        </section>
-
-        <!-- RIGHT PANE (Interactive Questions / Writing Editor / Speaking Studio) -->
-        <section id="rightPane" class="bg-slate-950 p-4 md:p-6 overflow-y-auto flex flex-col justify-between fade-enter">
-            <!-- Populated dynamically by JS -->
-        </section>
-
+        <section id="leftPane" class="bg-slate-900/40 p-4 md:p-6 overflow-y-auto border-b md:border-b-0 md:border-r border-slate-800 select-text fade-enter"></section>
+        <section id="rightPane" class="bg-slate-950 p-4 md:p-6 overflow-y-auto flex flex-col justify-between fade-enter"></section>
     </main>
 
-    <!-- ================= BOTTOM QUESTION PALETTE (REAL CD-IELTS NAVIGATOR) ================= -->
+    <!-- ================= BOTTOM QUESTION PALETTE ================= -->
     <footer class="bg-slate-900 border-t border-slate-800 px-4 py-2 flex justify-between items-center gap-3 z-20">
-        <div id="questionNavigator" class="flex items-center gap-1.5 overflow-x-auto py-1">
-            <!-- Dynamic Question Numbers -->
-        </div>
+        <div id="questionNavigator" class="flex items-center gap-1.5 overflow-x-auto py-1"></div>
         <div class="flex items-center gap-2 shrink-0">
             <span class="text-[11px] text-slate-400 hidden sm:inline">NOOR IELTS Engine v4.0</span>
             <button onclick="gradeCurrentObjectiveSection()" id="checkSectionBtn" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-xs px-4 py-2 rounded-xl shadow flex items-center gap-1.5 transition">
@@ -178,7 +153,7 @@
         </div>
     </footer>
 
-    <!-- ================= GLOBAL TEST LIBRARY MODAL (CAMBRIDGE 1-19 + AI INFINITE) ================= -->
+    <!-- ================= GLOBAL TEST LIBRARY MODAL ================= -->
     <div id="libraryModal" class="hidden fixed inset-0 bg-black/75 backdrop-blur-sm flex items-center justify-center p-4 z-50">
         <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-2xl w-full p-6 space-y-5 shadow-2xl max-h-[85vh] flex flex-col">
             <div class="flex justify-between items-center border-b border-slate-800 pb-3">
@@ -193,11 +168,8 @@
             </div>
 
             <div class="overflow-y-auto space-y-4 pr-1">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="testPackList">
-                    <!-- Populated from TEST_BANK -->
-                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="testPackList"></div>
 
-                <!-- AI Custom Topic Generator Box -->
                 <div class="p-4 rounded-2xl bg-gradient-to-br from-indigo-950/80 via-slate-900 to-slate-900 border border-indigo-500/40 space-y-3">
                     <div class="flex items-center justify-between">
                         <span class="text-xs font-bold uppercase tracking-wider text-indigo-300 flex items-center gap-1.5">
@@ -206,10 +178,10 @@
                         <span class="text-[11px] bg-indigo-500/20 text-indigo-300 px-2 py-0.5 rounded-full">Unlimited Cambridge Style</span>
                     </div>
                     <p class="text-xs text-slate-300 leading-relaxed">
-                        Want a specific Cambridge book, Makkar Speaking cue card, Liz/Simon Writing topic, or a brand-new Academic passage on any topic (e.g., <em>"Quantum Computing", "Marine Biology", "Cambridge 18 Test 3"</em>)? Enter below and AI builds a full 4-skill mock immediately:
+                        Enter any Cambridge book or academic topic (e.g., <em>"Quantum Computing", "Marine Biology", "Cambridge 17 Test 4"</em>) and AI builds a full 4-skill mock immediately:
                     </p>
                     <div class="flex gap-2">
-                        <input id="customTopicInput" type="text" placeholder="e.g., Artificial Intelligence, Space Exploration, Archaeology..." class="flex-1 bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-amber-400">
+                        <input id="customTopicInput" type="text" placeholder="e.g., Artificial Intelligence, Space Exploration..." class="flex-1 bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-amber-400">
                         <button onclick="generateDynamicAIMock(true)" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs px-4 py-2 rounded-xl shrink-0 flex items-center gap-1.5">
                             <i data-lucide="wand-2" class="w-4 h-4"></i> Generate Full Mock
                         </button>
@@ -261,7 +233,7 @@
         </div>
     </div>
 
-    <!-- ================= COMPREHENSIVE WORLDWIDE IELTS DATABASE + ENGINE ================= -->
+    <!-- ================= MAIN APPLICATION SCRIPT (FIXED SYNTAX) ================= -->
     <script>
         const tg = window.Telegram?.WebApp;
         if (tg) {
@@ -272,7 +244,6 @@
             }
         }
 
-        // BUILT-IN MULTI-PACK CAMBRIDGE & GLOBAL IELTS ARCHIVE
         const TEST_BANK = [
             {
                 id: "cam19_t1",
@@ -285,7 +256,7 @@
                             title: "Part 1: Hinchingbrooke Country Park Visit",
                             audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
                             ttsScript: "Welcome to Hinchingbrooke Country Park. I am Sally, the head ranger. The park covers 65 hectares in total, featuring two large lakes and woodland. For school groups, our Geography tour focuses on soil sampling and conservation. Admission per student is 4.50 pounds, and teachers attend free. Lunch takes place in the Visitors Center at 12:30 pm. Every visitor should bring waterproof boots.",
-                            contextNote: " Form Completion — Write ONE WORD AND/OR A NUMBER for each answer.",
+                            contextNote: "Form Completion — Write ONE WORD AND/OR A NUMBER for each answer.",
                             questions: [
                                 { id: "L1", num: 1, type: "fill", q: "Total area of Hinchingbrooke Park (in hectares):", a: "65" },
                                 { id: "L2", num: 2, type: "fill", q: "Main focus of Geography school visit: soil sampling and ______", a: "conservation" },
@@ -336,7 +307,7 @@
                             part: 1,
                             title: "Passage 1: How Tennis Rackets Have Changed",
                             text: `<p class="mb-3"><strong>A.</strong> In 2016, the British professional tennis player Andy Murray made a seemingly small decision that had a major impact on his career: he switched to a racket with a slightly larger head size. While amateurs rarely notice minor frame adjustments, modern tennis has been transformed by materials science.</p>
-                            <p class="mb-3"><strong>B.</strong> Fornearly a century until the 1970s, all tennis rackets were crafted from laminated wood, most commonly ash or maple. Wooden frames had small heads—around 65 square inches—because larger wooden loops would warp under the high tension of gut strings. In 1967, the Wilson Sporting Goods company introduced the T2000, a steel racket popularized by Jimmy Connors.</p>
+                            <p class="mb-3"><strong>B.</strong> For nearly a century until the 1970s, all tennis rackets were crafted from laminated wood, most commonly ash or maple. Wooden frames had small heads—around 65 square inches—because larger wooden loops would warp under the high tension of gut strings. In 1967, the Wilson Sporting Goods company introduced the T2000, a steel racket popularized by Jimmy Connors.</p>
                             <p class="mb-3"><strong>C.</strong> The real revolution arrived in the 1980s with carbon-fiber composites (graphite). Graphite frames were both lighter and vastly stiffer than wood or steel, enabling engineers to expand the sweet spot to 100 square inches without sacrificing control. Furthermore, synthetic polyester strings allowed players to generate unprecedented topspin.</p>`,
                             questions: [
                                 { id: "R1", num: 1, type: "tfng", q: "Andy Murray changed his racket frame material in 2016.", a: "FALSE" },
@@ -383,9 +354,7 @@
                     },
                     task2: {
                         type: "Opinion / Discussion Essay (Task 2)",
-                        prompt: "Some people think that competition at work, at school and in daily life is a good thing. Others believe that we should try to cooperate more, rather than competing against each other.
-
-Discuss both these views and give your own opinion."
+                        prompt: `Some people think that competition at work, at school and in daily life is a good thing. Others believe that we should try to cooperate more, rather than competing against each other.\n\nDiscuss both these views and give your own opinion.`
                     }
                 },
                 speaking: {
@@ -510,9 +479,7 @@ Discuss both these views and give your own opinion."
                     },
                     task2: {
                         type: "Problem & Solution Essay (Task 2)",
-                        prompt: "In many major cities around the world, the cost of housing has become extremely expensive for young people.
-
-What are the causes of this problem, and what measures can governments take to solve it?"
+                        prompt: `In many major cities around the world, the cost of housing has become extremely expensive for young people.\n\nWhat are the causes of this problem, and what measures can governments take to solve it?`
                     }
                 },
                 speaking: {
@@ -544,7 +511,6 @@ What are the causes of this problem, and what measures can governments take to s
             }
         ];
 
-        // STATE MANAGEMENT
         let currentTest = TEST_BANK[0];
         let activeSection = 'listening';
         let activePartIdx = 0;
@@ -555,9 +521,8 @@ What are the causes of this problem, and what measures can governments take to s
         let fontSizeScale = 16;
         let timerSeconds = 30 * 60;
 
-        // INITIALIZATION
         window.addEventListener('DOMContentLoaded', () => {
-            lucide.createIcons();
+            if (window.lucide) lucide.createIcons();
             renderLibraryPacks();
             switchSection('listening');
             startTimer();
@@ -580,7 +545,6 @@ What are the causes of this problem, and what measures can governments take to s
             document.getElementById('rightPane').style.fontSize = fontSizeScale + 'px';
         }
 
-        // HIGHLIGHTER
         function applyHighlight(color) {
             const sel = window.getSelection();
             if (!sel.rangeCount || sel.isCollapsed) return;
@@ -599,7 +563,6 @@ What are the causes of this problem, and what measures can governments take to s
             });
         }
 
-        // SWITCH MODULE (Listening / Reading / Writing / Speaking)
         function switchSection(sec) {
             activeSection = sec;
             activePartIdx = 0;
@@ -631,7 +594,7 @@ What are the causes of this problem, and what measures can governments take to s
             else if (activeSection === 'speaking') renderSpeaking(left, right);
 
             renderQuestionNavigator();
-            lucide.createIcons();
+            if (window.lucide) lucide.createIcons();
         }
 
         function renderSubPartTabs() {
@@ -661,7 +624,6 @@ What are the causes of this problem, and what measures can governments take to s
             }
         }
 
-        // ================= 1. LISTENING RENDERER =================
         function renderListening(left, right) {
             const partObj = currentTest.listening.parts[activePartIdx] || currentTest.listening.parts[0];
             left.innerHTML = `
@@ -672,512 +634,10 @@ What are the causes of this problem, and what measures can governments take to s
                         <p class="text-xs text-slate-300 mt-1">${partObj.contextNote}</p>
                     </div>
 
-                    <!-- Dual Audio Engine: MP3 Stream + Built-In Native British AI Voice -->
                     <div class="p-5 bg-slate-900 border border-slate-800 rounded-2xl space-y-4 shadow-lg">
-                        <div class="flex items-center justify-between">
+                        <div class="flex items-center justify-between flex-wrap gap-2">
                             <span class="text-xs font-bold text-slate-300 flex items-center gap-2">
-                                <i data-lucide="volume-2" class="w-4 h-4 text-amber-400"></i> Official Audio Stream & AI Voice Synthesizer
+                                <i data-lucide="volume-2" class="w-4 h-4 text-amber-400"></i> Official Audio Stream & UK Voice
                             </span>
                             <button onclick="playNativeExamAudio()" class="bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-extrabold px-3 py-1.5 rounded-xl flex items-center gap-1.5 shadow transition">
-                                <i data-lucide="play" class="w-3.5 h-3.5"></i> Play Exam Script (UK Voice)
-                            </button>
-                        </div>
-                        <audio controls class="w-full h-10 rounded-lg">
-                            <source src="${partObj.audioUrl}" type="audio/mpeg">
-                        </audio>
-                    </div>
-
-                    <div class="p-4 bg-slate-900/70 border border-slate-800/80 rounded-2xl space-y-2">
-                        <div class="flex justify-between items-center">
-                            <span class="text-xs font-bold text-slate-400">📄 Printable Audio Transcript (Toggle for Practice)</span>
-                            <button onclick="document.getElementById('scriptBox').classList.toggle('hidden')" class="text-xs text-amber-400 underline">Show/Hide Script</button>
-                        </div>
-                        <p id="scriptBox" class="hidden text-sm text-slate-300 leading-relaxed pt-2 border-t border-slate-800">${partObj.ttsScript}</p>
-                    </div>
-                </div>
-            `;
-
-            right.innerHTML = `
-                <div class="space-y-4">
-                    <h3 class="font-extrabold text-white border-b border-slate-800 pb-2">Questions — ${partObj.title}</h3>
-                    <div class="space-y-3">
-                        ${partObj.questions.map(q => renderQuestionCard(q)).join('')}
-                    </div>
-                    <div id="sectionFeedbackBox" class="hidden p-4 rounded-2xl border"></div>
-                </div>
-            `;
-        }
-
-        function playNativeExamAudio() {
-            const partObj = currentTest.listening.parts[activePartIdx];
-            if (!('speechSynthesis' in window)) return alert("Browser TTS not supported.");
-            window.speechSynthesis.cancel();
-            const utter = new SpeechSynthesisUtterance(partObj.ttsScript);
-            utter.lang = 'en-GB';
-            utter.rate = 0.94;
-            window.speechSynthesis.speak(utter);
-        }
-
-        // ================= 2. READING RENDERER =================
-        function renderReading(left, right) {
-            const passObj = currentTest.reading.passages[activePartIdx] || currentTest.reading.passages[0];
-            left.innerHTML = `
-                <div class="space-y-4">
-                    <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800">
-                        <span class="text-[11px] font-bold uppercase text-amber-400">Academic Reading • Passage ${passObj.part}</span>
-                        <h2 class="text-xl font-extrabold text-white mt-0.5">${passObj.title}</h2>
-                    </div>
-                    <article class="prose prose-invert max-w-none text-slate-200 leading-relaxed space-y-3 bg-slate-900/50 p-5 rounded-2xl border border-slate-800/80">
-                        ${passObj.text}
-                    </article>
-                </div>
-            `;
-
-            right.innerHTML = `
-                <div class="space-y-4">
-                    <h3 class="font-extrabold text-white border-b border-slate-800 pb-2">Questions — Passage ${passObj.part}</h3>
-                    <div class="space-y-3">
-                        ${passObj.questions.map(q => renderQuestionCard(q)).join('')}
-                    </div>
-                    <div id="sectionFeedbackBox" class="hidden p-4 rounded-2xl border"></div>
-                </div>
-            `;
-        }
-
-        function renderQuestionCard(q) {
-            const saved = userAnswers[q.id] || '';
-            if (q.type === 'fill') {
-                return `
-                    <div id="qcard-${q.id}" class="p-4 bg-slate-900 border border-slate-800 rounded-2xl space-y-2">
-                        <label class="text-sm font-semibold text-slate-200 block"><span class="inline-block w-6 h-6 rounded-md bg-amber-500/20 text-amber-300 text-center text-xs leading-6 font-bold mr-2">${q.num}</span>${q.q}</label>
-                        <input type="text" value="${saved}" oninput="saveAnswer('${q.id}', this.value)" placeholder="Type exact word/number..." class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3.5 py-2 text-sm text-white focus:outline-none focus:border-amber-400">
-                    </div>
-                `;
-            } else if (q.type === 'tfng') {
-                return `
-                    <div id="qcard-${q.id}" class="p-4 bg-slate-900 border border-slate-800 rounded-2xl space-y-2">
-                        <p class="text-sm font-semibold text-slate-200"><span class="inline-block w-6 h-6 rounded-md bg-amber-500/20 text-amber-300 text-center text-xs leading-6 font-bold mr-2">${q.num}</span>${q.q}</p>
-                        <div class="grid grid-cols-3 gap-2 pt-1">
-                            ${['TRUE', 'FALSE', 'NOT GIVEN'].map(opt => `
-                                <button onclick="saveAnswer('${q.id}', '${opt}');renderWorkspace()" class="py-2 rounded-xl text-xs font-bold border transition ${saved === opt ? 'bg-amber-500 text-slate-950 border-amber-400' : 'bg-slate-950 text-slate-300 border-slate-800 hover:border-slate-600'}">${opt}</button>
-                            `).join('')}
-                        </div>
-                    </div>
-                `;
-            } else {
-                return `
-                    <div id="qcard-${q.id}" class="p-4 bg-slate-900 border border-slate-800 rounded-2xl space-y-2">
-                        <p class="text-sm font-semibold text-slate-200"><span class="inline-block w-6 h-6 rounded-md bg-amber-500/20 text-amber-300 text-center text-xs leading-6 font-bold mr-2">${q.num}</span>${q.q}</p>
-                        <div class="space-y-1.5 pt-1">
-                            ${q.options.map(opt => `
-                                <button onclick="saveAnswer('${q.id}', '${opt.replace(/'/g, "\'")}');renderWorkspace()" class="w-full text-left px-3.5 py-2 rounded-xl text-xs font-semibold border transition ${saved === opt ? 'bg-amber-500 text-slate-950 border-amber-400' : 'bg-slate-950 text-slate-300 border-slate-800 hover:border-slate-700'}">${opt}</button>
-                            `).join('')}
-                        </div>
-                    </div>
-                `;
-            }
-        }
-
-        function saveAnswer(qid, val) {
-            userAnswers[qid] = val;
-            renderQuestionNavigator();
-        }
-
-        function renderQuestionNavigator() {
-            const nav = document.getElementById('questionNavigator');
-            nav.innerHTML = '';
-            let list = [];
-            if (activeSection === 'listening') {
-                currentTest.listening.parts.forEach(p => list.push(...p.questions));
-            } else if (activeSection === 'reading') {
-                currentTest.reading.passages.forEach(p => list.push(...p.questions));
-            }
-
-            list.forEach(q => {
-                const answered = userAnswers[q.id] && userAnswers[q.id].trim() !== '';
-                nav.innerHTML += `
-                    <button onclick="document.getElementById('qcard-${q.id}')?.scrollIntoView({behavior:'smooth'})"
-                        class="w-7 h-7 rounded-lg text-xs font-bold transition shrink-0 ${answered ? 'bg-amber-500 text-slate-950' : 'bg-slate-800 text-slate-400 hover:text-white'}">
-                        ${q.num}
-                    </button>
-                `;
-            });
-        }
-
-        function gradeCurrentObjectiveSection() {
-            let list = [];
-            if (activeSection === 'listening') currentTest.listening.parts.forEach(p => list.push(...p.questions));
-            else if (activeSection === 'reading') currentTest.reading.passages.forEach(p => list.push(...p.questions));
-            if (!list.length) return;
-
-            let correct = 0;
-            let keyDetails = [];
-            list.forEach(q => {
-                const u = (userAnswers[q.id] || '').trim().toLowerCase();
-                const a = q.a.trim().toLowerCase();
-                const isOk = u === a;
-                if (isOk) correct++;
-                keyDetails.push(`Q${q.num}: ${isOk ? '✅' : '❌'} (${q.a})`);
-            });
-
-            const ratio = correct / list.length;
-            const raw40 = Math.round(ratio * 40);
-            let band = 4.0;
-            if (raw40 >= 39) band = 9.0;
-            else if (raw40 >= 37) band = 8.5;
-            else if (raw40 >= 35) band = 8.0;
-            else if (raw40 >= 32) band = 7.5;
-            else if (raw40 >= 30) band = 7.0;
-            else if (raw40 >= 26) band = 6.5;
-            else if (raw40 >= 23) band = 6.0;
-            else if (raw40 >= 18) band = 5.5;
-            else if (raw40 >= 15) band = 5.0;
-
-            bandScores[activeSection] = band;
-            const box = document.getElementById('sectionFeedbackBox');
-            if (box) {
-                box.className = "p-5 rounded-2xl bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 space-y-2";
-                box.innerHTML = `
-                    <div class="flex justify-between items-center">
-                        <span class="font-extrabold text-base">Official Scaled Score: ${raw40}/40 (${correct}/${list.length})</span>
-                        <span class="bg-emerald-500 text-slate-950 font-black px-3 py-1 rounded-xl text-sm">Band ${band.toFixed(1)}</span>
-                    </div>
-                    <p class="text-xs text-slate-300 leading-relaxed">${keyDetails.join(' • ')}</p>
-                `;
-            }
-        }
-
-        // ================= 3. WRITING RENDERER =================
-        function renderWriting(left, right) {
-            const isT1 = activeWritingTask === 1;
-            const taskObj = isT1 ? currentTest.writing.task1 : currentTest.writing.task2;
-
-            let chartVisual = '';
-            if (isT1 && taskObj.chartData) {
-                chartVisual = `
-                    <div class="p-4 bg-slate-950 border border-slate-800 rounded-2xl space-y-3 mt-4">
-                        <span class="text-xs font-bold text-slate-400">📊 Official Task 1 Data Visualization (1980 — 2035)</span>
-                        <div class="space-y-2.5">
-                            ${taskObj.chartData.map(row => `
-                                <div class="space-y-1">
-                                    <div class="flex justify-between text-xs font-semibold">
-                                        <span>${row.label}</span>
-                                        <span class="text-slate-400">1980: <b>${row.y1980}</b> | 2010: <b>${row.y2010}</b> | 2035: <b>${row.y2035}</b></span>
-                                    </div>
-                                    <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
-                                        <div class="h-full rounded-full" style="width:${Math.min(100, row.y2035*2)}%; background:${row.color}"></div>
-                                    </div>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
-                `;
-            }
-
-            left.innerHTML = `
-                <div class="space-y-4">
-                    <div class="p-4 rounded-2xl bg-blue-500/10 border border-blue-500/30">
-                        <span class="text-xs font-bold text-blue-400 uppercase">${taskObj.type}</span>
-                        <h2 class="text-lg font-extrabold text-white mt-0.5">Academic Writing Task ${activeWritingTask}</h2>
-                        <p class="text-xs text-slate-300 mt-1">${isT1 ? 'Spend about 20 minutes. Write at least 150 words.' : 'Spend about 40 minutes. Write at least 250 words.'}</p>
-                    </div>
-                    <div class="p-5 bg-slate-900 border border-slate-800 rounded-2xl text-slate-200 leading-relaxed whitespace-pre-line font-medium">
-                        ${taskObj.prompt}
-                    </div>
-                    ${chartVisual}
-                </div>
-            `;
-
-            const savedEssay = userAnswers['writing_t' + activeWritingTask] || '';
-            const count = savedEssay.trim().split(/\s+/).filter(Boolean).length;
-
-            right.innerHTML = `
-                <div class="flex flex-col h-full space-y-3">
-                    <textarea id="essayEditor" oninput="updateWritingText(this.value)" placeholder="Write your official IELTS Task ${activeWritingTask} response here..."
-                        class="w-full flex-1 bg-slate-900 border border-slate-800 rounded-2xl p-4 text-slate-100 leading-relaxed focus:outline-none focus:border-amber-400 resize-none">${savedEssay}</textarea>
-
-                    <div class="flex flex-wrap justify-between items-center gap-2 pt-1">
-                        <span class="text-xs text-slate-400">Word Count: <strong id="liveWordCount" class="text-amber-400">${count}</strong> / ${isT1 ? 150 : 250}+ words</span>
-                        <button onclick="evaluateWritingAI()" id="evalWritingBtn" class="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-extrabold text-xs px-5 py-2.5 rounded-xl shadow-lg flex items-center gap-1.5">
-                            <i data-lucide="sparkles" class="w-4 h-4"></i> Evaluate with NOOR AI Examiner
-                        </button>
-                    </div>
-
-                    <div id="writingAIBox" class="hidden p-4 bg-slate-900 border border-amber-500/40 rounded-2xl max-h-64 overflow-y-auto text-xs leading-relaxed whitespace-pre-wrap"></div>
-                </div>
-            `;
-        }
-
-        function updateWritingText(val) {
-            userAnswers['writing_t' + activeWritingTask] = val;
-            const c = val.trim().split(/\s+/).filter(Boolean).length;
-            const el = document.getElementById('liveWordCount');
-            if (el) el.innerText = c;
-        }
-
-        async function evaluateWritingAI() {
-            const essay = (userAnswers['writing_t' + activeWritingTask] || '').trim();
-            if (essay.length < 25) return alert("Please write your essay before submitting to the AI Examiner.");
-
-            const btn = document.getElementById('evalWritingBtn');
-            const box = document.getElementById('writingAIBox');
-            btn.disabled = true; btn.innerText = "⏳ Grading 4 IELTS Criteria...";
-            box.classList.remove('hidden');
-            box.innerText = "NOOR IELTS Examiner AI is checking Task Achievement, Coherence, Lexical Resource & Grammar...";
-
-            const taskObj = activeWritingTask === 1 ? currentTest.writing.task1 : currentTest.writing.task2;
-            try {
-                const res = await fetch('/api/evaluate', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        mode: 'writing',
-                        task: activeWritingTask,
-                        prompt: taskObj.prompt,
-                        essay
-                    })
-                });
-                const data = await res.json();
-                box.innerText = data.feedback;
-                if (data.band) bandScores.writing = parseFloat(data.band);
-            } catch (e) {
-                box.innerText = "Error connecting to `/api/evaluate`. Make sure GEMINI_API_KEY is configured in Vercel.";
-            } finally {
-                btn.disabled = false; btn.innerText = "✨ Evaluate with NOOR AI Examiner";
-            }
-        }
-
-        // ================= 4. SPEAKING RENDERER =================
-        let mediaRecorder, audioChunks = [], recordedBase64 = null, recTimerInt, recSeconds = 0;
-
-        function renderSpeaking(left, right) {
-            let contentHtml = '';
-            if (activeSpeakingPart === 1) {
-                contentHtml = `
-                    <h3 class="font-extrabold text-white text-base">Part 1: Interview (${currentTest.speaking.part1.topic})</h3>
-                    <ul class="list-disc pl-5 space-y-2 text-slate-300 mt-2">
-                        ${currentTest.speaking.part1.questions.map(q => `<li>${q}</li>`).join('')}
-                    </ul>
-                `;
-            } else if (activeSpeakingPart === 2) {
-                contentHtml = `
-                    <span class="text-xs font-bold text-amber-400 uppercase">1 Minute Preparation • 2 Minutes Speaking</span>
-                    <h3 class="font-extrabold text-white text-base mt-1">${currentTest.speaking.part2.topic}</h3>
-                    <p class="text-xs text-slate-400 mt-2">You should say:</p>
-                    <ul class="list-disc pl-5 space-y-1.5 text-slate-300 mt-1">
-                        ${currentTest.speaking.part2.bullets.map(b => `<li>${b}</li>`).join('')}
-                    </ul>
-                `;
-            } else {
-                contentHtml = `
-                    <h3 class="font-extrabold text-white text-base">Part 3: Abstract Discussion (${currentTest.speaking.part3.topic})</h3>
-                    <ul class="list-disc pl-5 space-y-2 text-slate-300 mt-2">
-                        ${currentTest.speaking.part3.questions.map(q => `<li>${q}</li>`).join('')}
-                    </ul>
-                `;
-            }
-
-            left.innerHTML = `
-                <div class="space-y-4">
-                    <div class="p-4 rounded-2xl bg-purple-500/10 border border-purple-500/30">
-                        <span class="text-xs font-bold text-purple-300 uppercase">NOOR AI Speaking Room</span>
-                        <h2 class="text-lg font-extrabold text-white mt-0.5">Official Speaking Part ${activeSpeakingPart}</h2>
-                    </div>
-                    <div class="p-5 bg-slate-900 border border-slate-800 rounded-2xl leading-relaxed">
-                        ${contentHtml}
-                    </div>
-                </div>
-            `;
-
-            right.innerHTML = `
-                <div class="flex flex-col justify-between h-full space-y-4">
-                    <div class="p-6 bg-slate-900 border border-slate-800 rounded-2xl text-center space-y-4">
-                        <div id="waveAnim" class="flex justify-center items-center gap-1.5 h-10">
-                            <div class="w-1.5 h-3 bg-amber-400 rounded-full"></div>
-                            <div class="w-1.5 h-5 bg-amber-400 rounded-full"></div>
-                            <div class="w-1.5 h-3 bg-amber-400 rounded-full"></div>
-                            <div class="w-1.5 h-6 bg-amber-400 rounded-full"></div>
-                            <div class="w-1.5 h-3 bg-amber-400 rounded-full"></div>
-                        </div>
-
-                        <p id="recClock" class="font-mono text-2xl font-black text-white">00:00</p>
-
-                        <div class="flex justify-center gap-3">
-                            <button onclick="startMic()" id="btnStartMic" class="bg-red-600 hover:bg-red-500 text-white font-bold text-xs px-5 py-2.5 rounded-xl shadow flex items-center gap-1.5">
-                                <i data-lucide="mic" class="w-4 h-4"></i> Record Answer
-                            </button>
-                            <button onclick="stopMic()" id="btnStopMic" disabled class="bg-slate-800 text-slate-500 font-bold text-xs px-5 py-2.5 rounded-xl">
-                                Stop
-                            </button>
-                        </div>
-
-                        <audio id="speakPlayback" controls class="w-full hidden mt-2"></audio>
-
-                        <div class="pt-3 border-t border-slate-800 text-left">
-                            <label class="text-[11px] text-slate-400">PC / Mobile Text Fallback (If no microphone is attached):</label>
-                            <input id="speakFallbackInput" type="text" placeholder="Or type your spoken response here..." class="w-full mt-1 bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white">
-                        </div>
-
-                        <button onclick="evaluateSpeakingAI()" id="evalSpeakBtn" class="w-full bg-gradient-to-r from-amber-500 to-orange-500 text-slate-950 font-extrabold text-xs py-3 rounded-xl shadow-lg">
-                            🚀 Grade Speaking Fluency & Pronunciation with AI
-                        </button>
-                    </div>
-
-                    <div id="speakingAIBox" class="hidden p-4 bg-slate-900 border border-purple-500/40 rounded-2xl max-h-60 overflow-y-auto text-xs leading-relaxed whitespace-pre-wrap"></div>
-                </div>
-            `;
-        }
-
-        async function startMic() {
-            try {
-                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-                mediaRecorder = new MediaRecorder(stream);
-                audioChunks = [];
-                mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
-                mediaRecorder.onstop = () => {
-                    const blob = new Blob(audioChunks, { type: 'audio/webm' });
-                    const url = URL.createObjectURL(blob);
-                    const audioEl = document.getElementById('speakPlayback');
-                    audioEl.src = url; audioEl.classList.remove('hidden');
-
-                    const reader = new FileReader();
-                    reader.readAsDataURL(blob);
-                    reader.onloadend = () => {
-                        recordedBase64 = reader.result.split(',')[1];
-                    };
-                };
-                mediaRecorder.start();
-                recSeconds = 0;
-                document.querySelectorAll('#waveAnim div').forEach(d => d.classList.add('wave-bar'));
-                recTimerInt = setInterval(() => {
-                    recSeconds++;
-                    const m = String(Math.floor(recSeconds/60)).padStart(2,'0');
-                    const s = String(recSeconds%60).padStart(2,'0');
-                    document.getElementById('recClock').innerText = `${m}:${s}`;
-                }, 1000);
-                document.getElementById('btnStartMic').disabled = true;
-                document.getElementById('btnStopMic').disabled = false;
-                document.getElementById('btnStopMic').className = "bg-slate-700 text-white font-bold text-xs px-5 py-2.5 rounded-xl";
-            } catch (e) {
-                alert("Microphone not accessible. You can type your response in the fallback box below.");
-            }
-        }
-
-        function stopMic() {
-            if (mediaRecorder && mediaRecorder.state !== 'inactive') {
-                mediaRecorder.stop();
-                clearInterval(recTimerInt);
-                document.querySelectorAll('#waveAnim div').forEach(d => d.classList.remove('wave-bar'));
-                document.getElementById('btnStartMic').disabled = false;
-                document.getElementById('btnStopMic').disabled = true;
-            }
-        }
-
-        async function evaluateSpeakingAI() {
-            const fallbackText = document.getElementById('speakFallbackInput')?.value.trim();
-            if (!recordedBase64 && !fallbackText) return alert("Please record your voice or enter a response first.");
-
-            const btn = document.getElementById('evalSpeakBtn');
-            const box = document.getElementById('speakingAIBox');
-            btn.disabled = true; btn.innerText = "⏳ AI Examiner Listening...";
-            box.classList.remove('hidden');
-            box.innerText = "Analyzing Fluency, Lexical Resource, Grammar and Pronunciation...";
-
-            try {
-                const res = await fetch('/api/evaluate', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        mode: 'speaking',
-                        questions: document.getElementById('leftPane').innerText,
-                        audioBase64: recordedBase64,
-                        fallbackText
-                    })
-                });
-                const data = await res.json();
-                box.innerText = data.feedback;
-                if (data.band) bandScores.speaking = parseFloat(data.band);
-            } catch (e) {
-                box.innerText = "Error connecting to `/api/evaluate`.";
-            } finally {
-                btn.disabled = false; btn.innerText = "🚀 Grade Speaking Fluency & Pronunciation with AI";
-            }
-        }
-
-        // ================= LIBRARY & INFINITE AI GENERATOR =================
-        function openLibraryModal() { document.getElementById('libraryModal').classList.remove('hidden'); }
-        function closeLibraryModal() { document.getElementById('libraryModal').classList.add('hidden'); }
-
-        function renderLibraryPacks() {
-            const list = document.getElementById('testPackList');
-            list.innerHTML = TEST_BANK.map((t, idx) => `
-                <div onclick="selectTestPack(${idx})" class="p-4 rounded-2xl bg-slate-950 border ${currentTest.id === t.id ? 'border-amber-400' : 'border-slate-800 hover:border-slate-600'} cursor-pointer transition space-y-1">
-                    <span class="text-[10px] font-bold uppercase text-amber-400">${t.category}</span>
-                    <h3 class="font-extrabold text-white text-sm">${t.title}</h3>
-                    <p class="text-[11px] text-slate-400">4 Listening Parts • 3 Reading Passages • Writing T1/T2 • Speaking P1-3</p>
-                </div>
-            `).join('');
-        }
-
-        function selectTestPack(idx) {
-            currentTest = TEST_BANK[idx];
-            userAnswers = {};
-            document.getElementById('currentTestBadge').innerText = currentTest.title.split('•')[0].trim();
-            renderLibraryPacks();
-            closeLibraryModal();
-            renderWorkspace();
-        }
-
-        async function generateDynamicAIMock(fromModal = false) {
-            const customTopic = document.getElementById('customTopicInput')?.value.trim() || "Global Academic Cambridge Standard";
-            const btn = document.getElementById('aiGenBtn');
-            btn.innerHTML = `<span class="animate-spin">⏳</span> Generating...`;
-
-            try {
-                const res = await fetch('/api/evaluate', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        mode: 'generate_mock',
-                        topic: customTopic
-                    })
-                });
-                const data = await res.json();
-                if (data.mockTest) {
-                    TEST_BANK.unshift(data.mockTest);
-                    currentTest = data.mockTest;
-                    userAnswers = {};
-                    document.getElementById('currentTestBadge').innerText = currentTest.title;
-                    renderLibraryPacks();
-                    if (fromModal) closeLibraryModal();
-                    renderWorkspace();
-                } else {
-                    alert("AI Mock generation requires GEMINI_API_KEY in Vercel environment.");
-                }
-            } catch (e) {
-                alert("Connect `/api/evaluate` on Vercel with GEMINI_API_KEY to generate live AI Mock exams.");
-            } finally {
-                btn.innerHTML = `<i data-lucide="sparkles" class="w-3.5 h-3.5"></i><span class="hidden xl:inline">AI Infinite Bank</span>`;
-                lucide.createIcons();
-            }
-        }
-
-        function showOverallModal() {
-            document.getElementById('rep-l').innerText = bandScores.listening ?? '-';
-            document.getElementById('rep-r').innerText = bandScores.reading ?? '-';
-            document.getElementById('rep-w').innerText = bandScores.writing ?? '-';
-            document.getElementById('rep-s').innerText = bandScores.speaking ?? '-';
-
-            const vals = Object.values(bandScores).filter(v => v !== null);
-            if (vals.length > 0) {
-                const avg = vals.reduce((a,b) => a+b, 0) / vals.length;
-                const overall = Math.round(avg * 2) / 2;
-                document.getElementById('rep-overall').innerText = overall.toFixed(1);
-                const cefr = overall >= 8.5 ? 'C2 Mastery' : overall >= 7.0 ? 'C1 Effective Operational' : overall >= 5.5 ? 'B2 Vantage' : 'B1 Threshold';
-                document.getElementById('rep-cefr').innerText = `CEFR Level: ${cefr}`;
-            }
-            document.getElementById('overallModal').classList.remove('hidden');
-        }
-    </script>
-</body>
-</html>
+                               
